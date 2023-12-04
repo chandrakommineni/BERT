@@ -76,7 +76,7 @@
 				<li><label>Transfer learning from supervised data:&nbsp;</label>Deng&apos;09,
 					Yosinski&apos;14, Conneau&apos;17, McCann&apos;17</li>
 			</ul>
-			<b>Introduced in 2018, the paper has already been cited over 85000 times!</b>
+			<b>Introduced in October 2018, the paper has already been cited over 85000 times!</b>
 
 			<h2>Biography</h2>
 			<div class="img-div">
@@ -171,9 +171,34 @@
 			</p>
 
 			<h2>Follow-on Research</h2>
-			<p>
-
-			</p>
+			<p><i><b>Note:</b> The following papers were released within one year of BERT (May 2019 - Oct 2019)</i></p>
+			<ul>
+				<li><b>ERNIE <a href="#ernie">[4]</a> :</b>
+					Incorporates information-rich knowledge graphs during pre-training to enhance language
+					representation with lexical, syntactic, and knowledge information simultaneously.
+				</li>
+				<li><b>XLNet <a href="#xlnet">[5]</a> :</b>
+					Enables bidirectional context learning through permutation-based training and addresses the
+					"pretrain-finetune discrepancy" (dependency between masked tokens) with its autoregressive formulation.
+				</li>
+				<li><b>RoBERTa <a href="#roberta">[6]</a> :</b>
+					Improves over BERT by conducting a meticulous replication study, optimizes key
+					hyperparameters, and demonstrates that BERT was significantly undertrained.
+				</li>
+				<li><b>ALBERT <a href="#albert">[7]</a> :</b>
+					Introduces two parameter-reduction techniques to enhance memory efficiency and training speed
+					with scalability, and incorporates a self-supervised loss for inter-sentence coherence modeling.
+				</li>
+				<li><b>DistilBERT <a href="#distilbert">[8]</a> :</b>
+					Uses knowledge distillation to compress BERT during pre-training, and shows that it is
+					possible to reduce the size of a BERT model by 40%, while retaining 97% of its language
+					understanding capabilities and being 60% faster.
+				</li>
+				<li><b>T5 <a href="#t5">[9]</a> :</b>
+					Introduces a unified text-to-text framework for transfer learning in NLP, and systematically
+					explores various pre-training objectives, architectures, and transfer learning approaches.
+				</li>
+			</ul>
 
 			<h2>Peer-Review</h2>
 			<ul>
@@ -208,9 +233,57 @@
 				</a>
 				OpenAI (2018, June 11).
 			</p>
+			<p>
+				<a id="ernie">[4]</a>
+				<a href="https://arxiv.org/pdf/1905.07129.pdf">
+					Zhengyan Zhang, Xu Han, Zhiyuan Liu, Xin Jiang, Maosong Sun, Qun Liu.
+					<em>ERNIE: Enhanced Language Representation with Informative Entities.</em>
+				</a>
+				arXiv.org (2019, May 17).
+			</p>
+			<p>
+				<a id="xlnet">[5]</a>
+				<a href="https://arxiv.org/pdf/1906.08237.pdf">
+					Zhilin Yang, Zihang Dai, Yiming Yang, Jaime Carbonell, Ruslan Salakhutdinov, Quoc V. Le.
+					<em>XLNet: Generalized Autoregressive Pretraining for Language Understanding.</em>
+				</a>
+				arXiv.org (2019, June 19).
+			</p>
+			<p>
+				<a id="roberta">[6]</a>
+				<a href="https://arxiv.org/pdf/1907.11692.pdf">
+					Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer Levy, Mike Lewis, Luke Zettlemoyer, Veselin Stoyanov.
+					<em>RoBERTa: A Robustly Optimized BERT Pretraining Approach.</em>
+				</a>
+				arXiv.org (2019, July 26).
+			</p>
+			<p>
+				<a id="albert">[7]</a>
+				<a href="https://arxiv.org/pdf/1909.11942.pdf">
+					Zhenzhong Lan, Mingda Chen, Sebastian Goodman, Kevin Gimpel, Piyush Sharma, Radu Soricut.
+					<em>ALBERT: A Lite BERT for Self-supervised Learning of Language Representations.</em>
+				</a>
+				arXiv.org (2019, September 26).
+			</p>
+			<p>
+				<a id="distilbert">[8]</a>
+				<a href="https://arxiv.org/pdf/1910.01108.pdf">
+					Victor Sanh, Lysandre Debut, Julien Chaumond, Thomas Wolf.
+					<em>DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter.</em>
+				</a>
+				arXiv.org (2019, October 2).
+			</p>
+			<p>
+				<a id="t5">[9]</a>
+				<a href="https://arxiv.org/pdf/1910.10683.pdf">
+					Colin Raffel, Noam Shazeer, Adam Roberts, Katherine Lee, Sharan Narang, Michael Matena, Yanqi Zhou, Wei Li, Peter J. Liu.
+					<em>Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer.</em>
+				</a>
+				arXiv.org (2019, October 23).
+			</p>
 
 			<h2>Team Members</h2>
-			<p>Chandra Teja Kommineni, Debajyoti Chakraborty, Ekam Chahal</p>
+			<p>Chandra Teja Kommineni, Ekam Chahal, Debajyoti Chakraborty</p>
 		</div><!--col-->
 	</div><!--row -->
 </div> <!-- container -->
