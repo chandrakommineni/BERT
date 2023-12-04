@@ -54,16 +54,34 @@ h2 {
   margin-top: 15px;
   clear: both;
 }
+
 .citation:after {
   content: '';
   display: table;
   clear: both;
 }
+
 .citation img {
   float: left;
   margin: 0 10px 10px 0;
   width: 250px;
 }
+
 nobr.widenobr {
   white-space: normal;
+}
+
+.img-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.img-div-sub {
+  display: flex;
+  flex-direction: column;
+}
+
+.dig-div img {
+  width: 100%;
+  height: 500;
 }
