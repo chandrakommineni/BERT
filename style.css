@@ -213,11 +213,19 @@ code {
   margin-top: 40px;
 }
 
-.dig1-div-objectives, .dig3-div, .conclusion-div {
+#diagram-1, #diagram-2, #diagram-3, #diagram-4 {
+  margin-top: 40px;
+}
+
+.dig1-div-objectives, .dig3-div, .conclusion-div, .dig-div-content {
   display: flex;
 }
 
 .dig1-div-objectives div {
+  width: 50%;
+}
+
+.dig-div-content div{
   width: 50%;
 }
 

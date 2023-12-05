@@ -130,7 +130,7 @@
 			<div id="diagram-1">
 				<h3><strong>4.1</strong></h3>
 				<img src="./imgs/dig-1.png">
-				<div class="conclusion-div">
+				<div class="dig-div-content">
 					<div>
 						<p><strong>Transformer Encoder</strong></p>
 						<ul>
@@ -156,16 +156,21 @@
 			<div id="diagram-2">
 				<h3><strong>4.2</strong></h3>
 				<img src="index%207ce7079582044b71bbedcdc4fd63756e/Untitled.png" alt="Untitled" />
-				<h4><strong>Pretraining Dataset</strong></h4>
-				<div class="conclusion-div">
-					<ul>
-						<li>Books Corpus (800M words)</li>
-						<li>English Wikipedia (2,500M words)</li>
-					</ul>
-					<ul>
-						<li>BERT-Base, Uncased: 12-layers, 768-hidden, 12-attention-heads, 110M parameters</li>
-						<li>BERT-Large, Uncased: 24-layers, 1024-hidden, 16-attention-heads, 340M parameters</li>
-					</ul>
+				<div class="dig-div-content">
+					<div>
+						<h4><strong>Pretraining Dataset</strong></h4>
+						<ul>
+							<li>Books Corpus (800M words)</li>
+							<li>English Wikipedia (2,500M words)</li>
+						</ul>
+					</div>
+					<div>
+						<h4><strong>Models</strong></h4>
+						<ul>
+							<li>BERT-Base, Uncased: 12-layers, 768-hidden, 12-attention-heads, 110M parameters</li>
+							<li>BERT-Large, Uncased: 24-layers, 1024-hidden, 16-attention-heads, 340M parameters</li>
+						</ul>
+					</div>
 				</div>
 				<h4><strong>Pre-Training Objectives</strong></h4>
 				<div class="dig1-div-objectives">
@@ -516,6 +521,53 @@
 		</div>
 		<div class="subheading" id="peer-review">
 			<h2>12. Peer-Review</h2>
+			<div>
+				<h4>Merits</h4>
+				<ul>
+					<li>
+						<b>Versatility Across Tasks:</b>
+						<p>BERT exhibits remarkable versatility, showcasing state-of-the-art performance
+							across diverse natural language processing tasks. Its ability to excel in tasks
+							like question answering, sentiment analysis, and natural language inference
+							demonstrates its broad applicability.</p>
+					</li>
+					<li>
+						<b>Thorough Experimental Evaluation:</b>
+						<p>
+							The paper conducts a comprehensive set of experiments, thoroughly evaluating
+							BERT's performance against baseline models. This extensive evaluation across
+							various benchmarks contributes to the robustness of the findings.
+						</p>
+					</li>
+					<li>
+						<b>Open-Source Implementation:</b>
+						<p>
+							BERT is accompanied by an open-source implementation, fostering reproducibility
+							and enabling the broader research community to build upon its foundations.
+							This transparency enhances the credibility of the research.
+						</p>
+					</li>
+				</ul>
+			</div>
+			<div>
+				<h4>Problems</h4>
+				<ul>
+					<li>
+						<b>Computational Intensity:</b>
+						<p>The training of BERT is computationally intensive, requiring significant
+							resources. This poses a practical challenge for researchers with limited
+							access to high-performance computing, potentially hindering widespread
+							adoption.</p>
+					</li>
+					<li>
+						<b>Ethical Considerations:</b>
+						<p>The paper lacks a discussion of potential ethical implications associated
+							with the deployment of BERT. Considering the societal impact of powerful
+							language models, addressing ethical considerations, such as biases in the
+							training data or unintended consequences, is essential.</p>
+					</li>
+				</ul>
+			</div>
 		</div>
 		<div class="subheading" id="references">
 			<h3><strong>13. References</strong></h3>
