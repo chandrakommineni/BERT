@@ -17,8 +17,8 @@
 		<h1><strong><strong>An Analysis of BERT: Pre-training of Deep
 	Bidirectional Transformers for Language
 	Understanding</strong></strong></h1>
-		<div id="intro">
-			<h2><strong>Introduction</strong></h2>
+		<div class="subheading" id="intro">
+			<h2><strong>1. Introduction</strong></h2>
 			<p>BERT is a revolutionary NLP model developed by Google, bringing about
 				a transformative shift in the field. This groundbreaking innovation has
 				significantly impacted language understanding tasks, empowering machines
@@ -42,8 +42,8 @@
 				improvement) and SQuAD v2.0 Test F1 to 83.1 (5.1 point absolute
 				improvement).</p>
 		</div>
-		<div id="related-work">
-			<h2><strong>Historical background, related work</strong></h2>
+		<div class="subheading" id="related-work">
+			<h2><strong>2. Historical background, related work</strong></h2>
 			<p>BERT has its roots in pre-training contextual representations,
 				drawing inspiration from techniques like semi-supervised sequence
 				learning, generative pre-training, ELMo, and ULMFit. In contrast to
@@ -84,8 +84,8 @@
 			</ul>
 			<p><strong>Introduced in 2018, the paper has already been cited over 85000 times!</strong></p>
 		</div>
-		<div id="biography">
-			<h2><strong>Biography</strong></h2>
+		<div class="subheading" id="biography">
+			<h2><strong>3. Biography</strong></h2>
 			<div class="img-div">
 				<div class="img-div-sub">
 					<img src="./imgs/Jacob.jpeg" width="200" height="200">
@@ -125,9 +125,10 @@
 				</div>
 			</div>
 		</div>
-		<div id="diagrams">
-			<h2><strong>Diagrams</strong></h2>
+		<div class="subheading" id="diagrams">
+			<h2><strong>4. Diagrams</strong></h2>
 			<div id="diagram-1">
+				<h3><strong>4.1</strong></h3>
 				<img src="./imgs/dig-1.png">
 				<div class="conclusion-div">
 					<div>
@@ -153,13 +154,19 @@
 				</div>
 			</div>
 			<div id="diagram-2">
-				<p><img src="index%207ce7079582044b71bbedcdc4fd63756e/Untitled.png"
-						alt="Untitled" /></p>
+				<h3><strong>4.2</strong></h3>
+				<img src="index%207ce7079582044b71bbedcdc4fd63756e/Untitled.png" alt="Untitled" />
 				<h4><strong>Pretraining Dataset</strong></h4>
-				<ul>
-					<li>Books Corpus (800M words)</li>
-					<li>English Wikipedia (2,500M words)</li>
-				</ul>
+				<div class="conclusion-div">
+					<ul>
+						<li>Books Corpus (800M words)</li>
+						<li>English Wikipedia (2,500M words)</li>
+					</ul>
+					<ul>
+						<li>BERT-Base, Uncased: 12-layers, 768-hidden, 12-attention-heads, 110M parameters</li>
+						<li>BERT-Large, Uncased: 24-layers, 1024-hidden, 16-attention-heads, 340M parameters</li>
+					</ul>
+				</div>
 				<h4><strong>Pre-Training Objectives</strong></h4>
 				<div class="dig1-div-objectives">
 					<div>
@@ -200,7 +207,7 @@
 				</div>
 			</div>
 			<div id="diagram-3">
-				<h4><strong>Input Representation for BERT</strong></h4>
+				<h4><strong>4.3 Input Representation for BERT</strong></h4>
 				<p><img src="index%207ce7079582044b71bbedcdc4fd63756e/Untitled%201.png"
 						alt="Untitled" /></p>
 				<p>Before feeding the input to Bert , we convert input into embeddings
@@ -220,7 +227,7 @@
 				</ul>
 			</div>
 			<div id="diagram-4">
-				<h4><strong>Fine-tuning BERT</strong></h4>
+				<h4><strong>4.4 Fine-tuning BERT</strong></h4>
 				<div class="dig3-div">
 					<div>
 						<p><img src="index%207ce7079582044b71bbedcdc4fd63756e/Untitled%202.png" alt="Untitled" /></p>
@@ -259,8 +266,8 @@
 				</div>
 			</div>
 		</div>
-		<div id="bert-importance">
-			<h3><strong>Why is BERT important?</strong></h3>
+		<div class="subheading" id="bert-importance">
+			<h3><strong>5. Why is BERT important?</strong></h3>
 			<ul>
 				<li>
 					Consider the sentence: "He reached the bank after crossing the river.
@@ -273,8 +280,8 @@
 				</li>
 			</ul>
 		</div>
-		<div id="social-impact">
-			<h2><strong>Social Impact</strong></h2>
+		<div class="subheading" id="social-impact">
+			<h2><strong>6. Social Impact</strong></h2>
 			<h3><strong>Positive Impact</strong></h3>
 			<ul>
 				<li>
@@ -308,8 +315,8 @@
 				</li>
 			</ul>
 		</div>
-		<div id="industry-applications">
-			<h2><strong>Industry Applications</strong></h2>
+		<div class="subheading" id="industry-applications">
+			<h2><strong>7. Industry Applications</strong></h2>
 			<ul>
 				<li>
 					<strong>Chatbots &amp; Virtual Assistants:</strong> Better at understanding NLP queries.
@@ -342,8 +349,8 @@
 				</li>
 			</ul>
 		</div>
-		<div id="follow-on-research">
-			<h2><strong>Follow-on Research</strong></h2>
+		<div class="subheading" id="follow-on-research">
+			<h2><strong>8. Follow-on Research</strong></h2>
 			<p><em><strong>Note:</strong> The following papers were released within one year of BERT (May 2019 - Oct 2019)</em></p>
 			<ul>
 				<li>
@@ -379,8 +386,8 @@
 				</li>
 			</ul>
 		</div>
-		<div id="results">
-			<h2><strong>Implementations/results</strong></h2>
+		<div class="subheading" id="results">
+			<h2><strong>9. Implementations/results</strong></h2>
 			<ol>
 				<li>
 					<b>Fine tuning of BERT for single sentence classification task using Cola dataset</b>
@@ -413,8 +420,8 @@
 				</li>
 			</ol>
 		</div>
-		<div id="conclusions">
-			<h2><strong>Conclusion/Ablation Studies</strong></h2>
+		<div class="subheading" id="conclusions">
+			<h2><strong>10. Conclusion/Ablation Studies</strong></h2>
 			<div class="conclusion-div">
 				<img src="./imgs/pretraining_task.png">
 				<div>
@@ -471,12 +478,12 @@
 					</p>
 				</div>
 			</div>
-			<div>
-				<img src="./imgs/ablation_studies.png">
-			</div>
+<!--			<div>-->
+<!--				<img src="./imgs/ablation_studies.png">-->
+<!--			</div>-->
 		</div>
-		<div id="paper-insights">
-			<h2><strong>Paper insights</strong></h2>
+		<div class="subheading" id="paper-insights">
+			<h2><strong>11. Paper insights</strong></h2>
 			<p>
 				SWAG is a commonsense NLI dataset. A model is given a context from a video caption
 				and four ending options for what might happen next for each question. Only one option
@@ -507,59 +514,59 @@
 				<img src="./imgs/model_performance.png">
 			</div>
 		</div>
-		<div id="peer-review">
-			<h2>Peer-Review</h2>
+		<div class="subheading" id="peer-review">
+			<h2>12. Peer-Review</h2>
 		</div>
-		<div id="references">
-			<h3><strong>References</strong></h3>
-			<p>[1]<a href="https://arxiv.org/pdf/1810.04805.pdf">Jacob Devlin, Ming-Wei Chang, Kenton Lee,
+		<div class="subheading" id="references">
+			<h3><strong>13. References</strong></h3>
+			<p>[1]&nbsp;<a href="https://arxiv.org/pdf/1810.04805.pdf">Jacob Devlin, Ming-Wei Chang, Kenton Lee,
 				Kristina Toutanova. <em>BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding.
 				</em></a> arXiv.org (2018, October 11).</p>
-			<p>[2]<a href="https://arxiv.org/pdf/1802.05365.pdf">Matthew E. Peters, Mark Neumann, Mohit Iyyer,
+			<p>[2]&nbsp;<a href="https://arxiv.org/pdf/1802.05365.pdf">Matthew E. Peters, Mark Neumann, Mohit Iyyer,
 				Matt Gardner. Christopher Clark, Kenton Lee, Luke Zettlemoyer. <em>Deep contextualized word representations.
 				</em></a>arXiv.org (2018, March 22).</p>
-			<p>[3]<a href="https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf">Alec
+			<p>[3]&nbsp;<a href="https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf">Alec
 				Radford, Karthik Narasimhan, Tim Salimans, Ilya Sutskever. <em>Improving Language Understanding by
 					Generative Pre-Training.</em></a>OpenAI (2018, June 11).</p>
-			<p>[4]<a href="https://arxiv.org/pdf/1905.07129.pdf">
+			<p>[4]&nbsp;<a href="https://arxiv.org/pdf/1905.07129.pdf">
 					Zhengyan Zhang, Xu Han, Zhiyuan Liu, Xin Jiang, Maosong Sun, Qun Liu.
 					<em>ERNIE: Enhanced Language Representation with Informative Entities.</em>
 				</a>
 				arXiv.org (2019, May 17).
 			</p>
-			<p>[5]<a href="https://arxiv.org/pdf/1906.08237.pdf">
+			<p>[5]&nbsp;<a href="https://arxiv.org/pdf/1906.08237.pdf">
 					Zhilin Yang, Zihang Dai, Yiming Yang, Jaime Carbonell, Ruslan Salakhutdinov, Quoc V. Le.
 					<em>XLNet: Generalized Autoregressive Pretraining for Language Understanding.</em>
 				</a>
 				arXiv.org (2019, June 19).
 			</p>
-			<p>[6]<a href="https://arxiv.org/pdf/1907.11692.pdf">
+			<p>[6]&nbsp;<a href="https://arxiv.org/pdf/1907.11692.pdf">
 					Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer Levy, Mike Lewis, Luke Zettlemoyer, Veselin Stoyanov.
 					<em>RoBERTa: A Robustly Optimized BERT Pretraining Approach.</em>
 				</a>
 				arXiv.org (2019, July 26).
 			</p>
-			<p>[7]<a href="https://arxiv.org/pdf/1909.11942.pdf">
+			<p>[7]&nbsp;<a href="https://arxiv.org/pdf/1909.11942.pdf">
 					Zhenzhong Lan, Mingda Chen, Sebastian Goodman, Kevin Gimpel, Piyush Sharma, Radu Soricut.
 					<em>ALBERT: A Lite BERT for Self-supervised Learning of Language Representations.</em>
 				</a>
 				arXiv.org (2019, September 26).
 			</p>
-			<p>[8]<a href="https://arxiv.org/pdf/1910.01108.pdf">
+			<p>[8]&nbsp;<a href="https://arxiv.org/pdf/1910.01108.pdf">
 					Victor Sanh, Lysandre Debut, Julien Chaumond, Thomas Wolf.
 					<em>DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter.</em>
 				</a>
 				arXiv.org (2019, October 2).
 			</p>
-			<p>[9]<a href="https://arxiv.org/pdf/1910.10683.pdf">
+			<p>[9]&nbsp;<a href="https://arxiv.org/pdf/1910.10683.pdf">
 					Colin Raffel, Noam Shazeer, Adam Roberts, Katherine Lee, Sharan Narang, Michael Matena, Yanqi Zhou, Wei Li, Peter J. Liu.
 					<em>Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer.</em>
 				</a>
 				arXiv.org (2019, October 23).
 			</p>
 		</div>
-		<div id="team-members">
-			<h2><strong>Team Members</strong></h2>
+		<div class="subheading" id="team-members">
+			<h2><strong>14. Team Members</strong></h2>
 			<p>Chandra Teja Kommineni, Debajyoti Chakraborty, Ekam Chahal</p>
 		</div>
 	</body>

@@ -209,6 +209,10 @@ code {
   hyphens: manual;
 }
 
+.subheading {
+  margin-top: 40px;
+}
+
 .dig1-div-objectives, .dig3-div, .conclusion-div {
   display: flex;
 }
