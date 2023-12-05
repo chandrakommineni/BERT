@@ -1,380 +1,96 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-
 <head>
-	<title>Your Project Name</title>
-	<meta content="Your" property="og:title" />
-	<meta content="Your Project Name" name="twitter:title"/>
-	<meta content="Your project about your cool topic described right here." name="description"/>
-	<meta content="Your project about your cool topic described right here." property="og:description"/>
-	<meta content="Your project about your cool topic described right here." name="twitter:description"/>
-	<meta content="website" property="og:type"/>
-	<meta content="summary" name="twitter:card"/>
-	<meta content="width=device-width,initial-scale=1" name="viewport"/>
-	<!-- bootstrap for mobile-friendly layout -->
-	<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-	      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" rel="stylesheet">
-	<script crossorigin="anonymous"
-	        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-	        src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-	<script crossorigin="anonymous"
-	        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
-	        src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-	<link href="style.css" rel="stylesheet">
-</head>
-<body class="nd-docs">
-<div class="nd-pageheader">
-	<div class="container">
-		<h1 class="lead">
-			<nobr class="widenobr">Fine-tuning BERT</nobr>
-			<nobr class="widenobr">For CS 7150</nobr>
-		</h1>
-	</div>
-</div><!-- end nd-pageheader -->
+	<meta charset="utf-8" />
+	<meta name="generator" content="pandoc" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+	<link rel="stylesheet" href="./style.css">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<title>BERT</title>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>in</title>
-  <style>
-
-/* body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  margin: 0;
-  padding: 0;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  color: #333;
-}
-
-h1 {
-  font-size: 2.5em;
-  margin-bottom: 0.5em;
-}
-
-h2 {
-  font-size: 2em;
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
-}
-
-h3 {
-  font-size: 1.8em;
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
-}
-
-p {
-  margin: 1em 0;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  margin: 1em 0;
-}
-
-ul, ol {
-  margin: 1em 0;
-  padding-left: 2em;
-}
-
-blockquote {
-  margin: 1em 0;
-  padding: 0.5em 1em;
-  background-color: #f0f0f0;
-}
-
-pre {
-  margin: 1em 0;
-  padding: 1em;
-  background-color: #f0f0f0;
-  overflow: auto;
-}
-
-code {
-  font-family: 'Courier New', monospace;
-  font-size: 0.9em;
-  background-color: #f0f0f0;
-  padding: 0.2em 0.4em;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1em 0;
-}
-
-th, td {
-  padding: */
-
-
-
-
-
-
-
-
-    html {
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      max-width: 100%;
-      padding-left: 100px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-
-
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 12px;
-      }
-
-      h1, h2, h3, h4, h5, h6 {
-  color: #333;
-}
-
-h1 {
-  font-size: 2.5em;
-  margin-bottom: 0.5em;
-}
-
-h2 {
-  font-size: 2em;
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
-}
-
-h3 {
-  font-size: 1.8em;
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
-}
-
-p {
-  margin: 1em 0;
-}
-
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      html {
-        background-color: white;
-      }
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 90%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
-      font-size: 85%;
-      margin: 0;
-      hyphens: manual;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-
-
-  </style>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-</head>
-<body>
-<h1><strong><strong>An Analysis of BERT: Pre-training of Deep
-Bidirectional Transformers for Language
-Understanding</strong></strong></h1>
-<h2><strong>Introduction</strong></h2>
-<p>BERT is a revolutionary NLP model developed by Google, bringing about
-a transformative shift in the field. This groundbreaking innovation has
-significantly impacted language understanding tasks, empowering machines
-to grasp context and nuances in human communication.
-BERT, which stands for Bidirectional
-Encoder Representations from
-Transformers. Unlike recent language representation
-models <a href="about:blank#dcwr">[2]</a> <a
-href="about:blank#ilugpt">[3]</a>, BERT is designed to pretrain deep
-bidirectional representations from unlabeled text by jointly
-conditioning on both left and right context in all layers. As a result,
-the pre-trained BERT model can be finetuned with just one additional
-output layer to create state-of-the-art models for a wide range of
-tasks, such as question answering and language inference, without
-substantial taskspecific architecture modifications.</p>
-<p>BERT is conceptually simple and empirically powerful. It obtains new
-state-of-the-art results on eleven natural language processing tasks,
-including pushing the GLUE score to 80.5% (7.7% point absolute
-improvement), MultiNLI accuracy to 86.7% (4.6% absolute improvement),
-SQuAD v1.1 question answering Test F1 to 93.2 (1.5 point absolute
-improvement) and SQuAD v2.0 Test F1 to 83.1 (5.1 point absolute
-improvement).</p>
-<h2><strong>Historical background, related work</strong></h2>
-<p>BERT has its roots in pre-training contextual representations,
-drawing inspiration from techniques like semi-supervised sequence
-learning, generative pre-training, ELMo, and ULMFit. In contrast to
-earlier models, BERT represents a deeply bidirectional, unsupervised
-language model, pre-trained exclusively on a plain text corpus. Unlike
-context-free models such as word2vec or GloVe, which generate a single
-word embedding for each vocabulary word, BERT considers the context of
-each word occurrence</p>
-<p><strong>Feature-based</strong></p>
-<ul>
-<li>Word embeddings: Hinton'09, Turian'10, Le'14, Kiros'15, Peters'17,
-Lee'18</li>
-<li>Sentence representations: Mikolov'13, Kiros'15, Hill'16,
-Malamud'16</li>
-</ul>
-<p><strong>Fine-tuning</strong></p>
-<ul>
-<li>Pre-trained using unsupervised data: Dai'15, Ruder'18, Radford'18
-{OpenAI GPT}</li>
-<li>Transfer learning from supervised data: Deng'09, Yosinski'14,
-Conneau'17, McCann'17</li>
-</ul>
-<p><strong>Introduced in 2018, the paper has already been cited over
-85000 times!</strong></p>
-
-
-
-<h2><strong>Biography</strong></h2>
+	<body>
+		<h1><strong><strong>An Analysis of BERT: Pre-training of Deep
+	Bidirectional Transformers for Language
+	Understanding</strong></strong></h1>
+		<div id="intro">
+			<h2><strong>Introduction</strong></h2>
+			<p>BERT is a revolutionary NLP model developed by Google, bringing about
+				a transformative shift in the field. This groundbreaking innovation has
+				significantly impacted language understanding tasks, empowering machines
+				to grasp context and nuances in human communication.
+				BERT, which stands for Bidirectional
+				Encoder Representations from
+				Transformers. Unlike recent language representation
+				models <a href="about:blank#dcwr">[2]</a> <a
+						href="about:blank#ilugpt">[3]</a>, BERT is designed to pretrain deep
+				bidirectional representations from unlabeled text by jointly
+				conditioning on both left and right context in all layers. As a result,
+				the pre-trained BERT model can be finetuned with just one additional
+				output layer to create state-of-the-art models for a wide range of
+				tasks, such as question answering and language inference, without
+				substantial taskspecific architecture modifications.</p>
+			<p>BERT is conceptually simple and empirically powerful. It obtains new
+				state-of-the-art results on eleven natural language processing tasks,
+				including pushing the GLUE score to 80.5% (7.7% point absolute
+				improvement), MultiNLI accuracy to 86.7% (4.6% absolute improvement),
+				SQuAD v1.1 question answering Test F1 to 93.2 (1.5 point absolute
+				improvement) and SQuAD v2.0 Test F1 to 83.1 (5.1 point absolute
+				improvement).</p>
+		</div>
+		<div id="related-work">
+			<h2><strong>Historical background, related work</strong></h2>
+			<p>BERT has its roots in pre-training contextual representations,
+				drawing inspiration from techniques like semi-supervised sequence
+				learning, generative pre-training, ELMo, and ULMFit. In contrast to
+				earlier models, BERT represents a deeply bidirectional, unsupervised
+				language model, pre-trained exclusively on a plain text corpus. Unlike
+				context-free models such as word2vec or GloVe, which generate a single
+				word embedding for each vocabulary word, BERT considers the context of
+				each word occurrence</p>
+			<p><strong>Feature-based</strong></p>
+			<ul>
+				<li>Word embeddings:&nbsp;
+					<a target="blank" href="https://proceedings.neurips.cc/paper_files/paper/2008/file/1e056d2b0ebd5c878c550da6ac5d3724-Paper.pdf">Hinton'09</a>,
+					<a target="blank" href="https://aclanthology.org/P10-1040.pdf">Turian'10</a>,
+					<a target="blank" href="https://proceedings.mlr.press/v32/le14.pdf">Le'14</a>,
+					<a target="blank" href="https://papers.nips.cc/paper_files/paper/2015/file/f442d33fa06832082290ad8544a8da27-Paper.pdf">Kiros'15</a>,
+					<a target="blank" href="https://aclanthology.org/P17-1161.pdf">Peters'17</a>,
+					<a target="blank" href="https://openreview.net/pdf?id=rJvJXZb0W">Lee'18</a>
+				</li>
+				<li>Sentence representations:&nbsp;
+					<a target="blank" href="https://arxiv.org/pdf/1312.3005.pdf">Mikolov'13</a>,
+					<a target="blank" href="https://papers.nips.cc/paper_files/paper/2015/file/f442d33fa06832082290ad8544a8da27-Paper.pdf">Kiros'15</a>,
+					<a target="blank" href="https://aclanthology.org/N16-1162.pdf">Hill'16</a>,
+					<a target="blank" href="https://aclanthology.org/K16-1006.pdf">Malamud'16</a>
+				</li>
+			</ul>
+			<p><strong>Fine-tuning</strong></p>
+			<ul>
+				<li>Pre-trained using unsupervised data:&nbsp;
+					<a target="blank" href="https://papers.nips.cc/paper_files/paper/2015/file/7137debd45ae4d0ab9aa953017286b20-Paper.pdf">Dai'15</a>,
+					<a target="blank" href="https://aclanthology.org/P18-1031.pdf">Ruder'18</a>,
+					<a target="blank" href="https://s3-us-west-2.amazonaws.com/openai-assets/research-covers/language-unsupervised/language_understanding_paper.pdf">Radford'18 {OpenAI GPT}</a></li>
+				<li>Transfer learning from supervised data:&nbsp;
+					<a target="blank" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5206848">Deng'09</a>,
+					<a target="blank" href="https://papers.nips.cc/paper_files/paper/2014/file/375c71349b295fbe2dcdca9206f20a06-Paper.pdf">Yosinski'14</a>,
+					<a target="blank" href="https://aclanthology.org/D17-1070.pdf">Conneau'17</a>,
+					<a target="blank" href="https://papers.nips.cc/paper_files/paper/2017/file/20c86a628232a67e7bd46f76fba7ce12-Paper.pdf">McCann'17</a>
+				</li>
+			</ul>
+			<p><strong>Introduced in 2018, the paper has already been cited over 85000 times!</strong></p>
+		</div>
+		<div id="biography">
+			<h2><strong>Biography</strong></h2>
 			<div class="img-div">
 				<div class="img-div-sub">
 					<img src="./imgs/Jacob.jpeg" width="200" height="200">
 					<p>
+						<b>Jacob Devlin</b> <br>
 						C: ? H: ? <br>
 						Software Engineer @ Google <br>
 						MS CS @ University of Maryland
@@ -383,6 +99,7 @@ Conneau'17, McCann'17</li>
 				<div class="img-div-sub">
 					<img src="./imgs/Cheng.jpeg" width="200" height="200">
 					<p>
+						<b>Ming-Wei Chang</b> <br>
 						C: 98,000+ H: 47 <br>
 						Research scientist @ Google <br>
 						PHD CS @ UIUC
@@ -391,6 +108,7 @@ Conneau'17, McCann'17</li>
 				<div class="img-div-sub">
 					<img src="./imgs/Kenton.jpeg" width="200" height="200">
 					<p>
+						<b>Kenton Lee</b> <br>
 						C: 109,000+ H: 32 <br>
 						Research scientist @ Google <br>
 						PHD CS @ University of Washington
@@ -399,269 +117,462 @@ Conneau'17, McCann'17</li>
 				<div class="img-div-sub">
 					<img src="./imgs/Kristina.jpeg" width="200" height="200">
 					<p>
+						<b>Kristina Toutanova</b> <br>
 						C: 103,000+ H: 49 <br>
 						Research scientist @ Google <br>
 						PHD CS @ Stanford University
 					</p>
 				</div>
 			</div>
+		</div>
+		<div id="diagrams">
+			<h2><strong>Diagrams</strong></h2>
+			<div id="diagram-1">
+				<img src="./imgs/dig-1.png">
+				<div class="conclusion-div">
+					<div>
+						<p><strong>Transformer Encoder</strong></p>
+						<ul>
+							<li>Bi-directional (processes text left-to-right and right-to-left)</li>
+							<li>Autoencoding</li>
+							<li>Constraints words “seeing themselves” by masking certain tokens.</li>
+							<li>Cannot be used for generation trivially.</li>
+							<li>For example, BERT is encoder-only.</li>
+						</ul>
+					</div>
+					<div>
+						<p><strong>Transformer Decoder</strong></p>
+						<ul>
+							<li>Unidirectional (processes text in only one direction)</li>
+							<li>Autoregressive</li>
+							<li>Constraints the self-attention by masking the tokens to the right.</li>
+							<li>Primarily used for text generation.</li>
+							<li>For example, OpenAI GPT is decoder-only.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="diagram-2">
+				<p><img src="index%207ce7079582044b71bbedcdc4fd63756e/Untitled.png"
+						alt="Untitled" /></p>
+				<h4><strong>Pretraining Dataset</strong></h4>
+				<ul>
+					<li>Books Corpus (800M words)</li>
+					<li>English Wikipedia (2,500M words)</li>
+				</ul>
+				<h4><strong>Pre-Training Objectives</strong></h4>
+				<div class="dig1-div-objectives">
+					<div>
+						<p><strong>Masked LM (MLM)</strong></p>
+						<ul>
+							<li>
+								<p>Randomly, <strong>15% of all Word Piece tokens are chosen and masked</strong>
+									in each sequence. <br>These tokens are predicted rather than constructing the
+									entire input.</p>
+							</li>
+							<li>
+								<p>If the<em>i</em>th token is chosen, then it is replaced with</p>
+								<p>(1)&nbsp;<strong>the [MASK] token 80% of the time</strong></p>
+								<p>(2)&nbsp;<strong>a random token 10% of the time</strong></p>
+								<p>(3) the&nbsp;<strong>unchanged&nbsp;<em>i</em>-th token 10% of the time</strong>.</p>
+							</li>
+						</ul>
+						<p>Then,&nbsp;<strong><em>Ti&nbsp;</em>will be used to predict the original
+							token&nbsp;</strong>with&nbsp;<strong>cross entropy loss.</strong></p>
+					</div>
+					<div>
+						<p><strong>Next Sentence Prediction (NSP)</strong></p>
+						<ul>
+							<li>
+								<p>Given sentences A and B for each pretraining example,&nbsp;<strong>50% of the time</strong>
+								B is the&nbsp;<strong>actual next sentence</strong> that follows A (labeled as&nbsp;<strong>
+								IsNext</strong>), and&nbsp;<strong>50% of the time</strong>&nbsp;it is a&nbsp;<strong>random
+								sentence</strong>&nbsp;from the corpus (labeled as&nbsp;<strong>NotNext</strong>).</p>
+							</li>
+							<li>
+								<p>Downstream tasks such as Question Answering (QA) and Natural Language Inference (NLI) are
+								based on <strong>understanding the relationship between two sentences</strong>, which is&nbsp;
+								<strong>not directly captured by language modeling</strong>. A binarized next sentence
+								prediction task is pretrained that can be trivially generated from any monolingual corpus.</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="diagram-3">
+				<h4><strong>Input Representation for BERT</strong></h4>
+				<p><img src="index%207ce7079582044b71bbedcdc4fd63756e/Untitled%201.png"
+						alt="Untitled" /></p>
+				<p>Before feeding the input to Bert , we convert input into embeddings
+					using 3 embedding layer</p>
+				<ul>
+					<li>
+						<strong>Token embedding</strong>  - New token called [cls] is added in the beginning.
+						WordPiece embeddings with a 30,000 token vocabulary is used as tokenizer.
+					</li>
+					<li>
+						<strong>Segment embedding</strong> - Segment embedding distinguishes between the two
+						provided sentences. A special token ([SEP]) is used for separation.
+					</li>
+					<li>
+						<strong>Position embedding</strong> - Provide information related to word order.
+					</li>
+				</ul>
+			</div>
+			<div id="diagram-4">
+				<h4><strong>Fine-tuning BERT</strong></h4>
+				<div class="dig3-div">
+					<div>
+						<p><img src="index%207ce7079582044b71bbedcdc4fd63756e/Untitled%202.png" alt="Untitled" /></p>
+					</div>
+					<div>
+						<h4>Advantages of Fine-tuning</h4>
+						<p>We use the pre-trained BERT model, append an untrained layer to the end, and
+							train the modified model for our classification task. This approach offers
+							several advantages over training a task-specific deep learning model
+							(e.g., CNN, BiLSTM):</p>
+						<ol>
+							<li>
+								<b>Rapid Development:</b>
+								<ul>
+									<li>Pre-trained BERT model weights already capture extensive language information.</li>
+									<li>Fine-tuning the model is quicker, resembling tuning the already well-trained bottom layers.</li>
+									<li>Authors recommend only 2-4 epochs for fine-tuning, saving substantial time compared to training from scratch.</li>
+								</ul>
+							</li>
+							<li>
+								<b>Data Efficiency:</b>
+								<ul>
+									<li>Fine-tuning on BERT's pre-trained weights requires a smaller dataset than training a model from scratch.</li>
+									<li>Overcomes the need for a large dataset, a common challenge in training NLP models from the ground up.</li>
+								</ul>
+							</li>
+							<li>
+								<b>Superior Results:</b>
+								<ul>
+									<li>Simple fine-tuning, typically involving adding one fully-connected layer to BERT and training briefly, achieves state-of-the-art results.</li>
+									<li>Outperforms or matches custom architectures designed for specific tasks without the need for intricate adjustments.</li>
+								</ul>
+							</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="bert-importance">
+			<h3><strong>Why is BERT important?</strong></h3>
+			<ul>
+				<li>
+					Consider the sentence: "He reached the bank after crossing the river.
+					Weary from his journey, he sat down on the grassy bank to rest." In traditional language models,
+					the sentence is typically processed in a linear fashion from left to right, potentially missing
+					the pivotal impact of the word "bank" on the overall interpretation. BERT, on the other hand,
+					acknowledges the importance of context-driven word relationships in crafting meaning.
+					This contextual awareness becomes particularly evident when considering instances like a
+					traveller resting on the riverbank rather than reaching a financial institution.
+				</li>
+			</ul>
+		</div>
+		<div id="social-impact">
+			<h2><strong>Social Impact</strong></h2>
+			<h3><strong>Positive Impact</strong></h3>
+			<ul>
+				<li>
+					<strong>Advancements in Chatbots and Virtual Assistants</strong>: BERT has contributed to
+					the development of more sophisticated and context-aware chatbots and virtual assistants,
+					enabling more natural and effective human-computer interactions.
+				</li>
+				<li>
+					<strong>Enhanced Search Engine Results</strong>: Search engines like Google use BERT to
+					better understand the context and nuances of search queries, leading to more accurate and
+					relevant search results. This has improved the overall search experience for users.
+				</li>
+			</ul>
+			<h3><strong>Negative Impact</strong></h3>
+			<ul>
+				<li>
+					<strong>Challenges in Bias and Fairness</strong>: The training data used for models like
+					BERT may contain biases present in the language data. As a result, these biases can be
+					perpetuated or even amplified in the model's output, potentially leading to biased or unfair
+					results. Addressing bias and ensuring fairness in language models is an ongoing challenge.
+				</li>
+				<li>
+					<strong>Privacy Concerns</strong>: The use of large language models raises privacy concerns,
+					especially when handling sensitive information. There are risks associated with the unintentional
+					generation of sensitive content or the extraction of sensitive information from the training data.
+				</li>
+				<li>
+					<strong>Resource Intensiveness</strong>: Training large models like BERT requires significant
+					computational resources, which can contribute to environmental concerns. Additionally, deploying
+					and running such models in production may require substantial computational power.
+				</li>
+			</ul>
+		</div>
+		<div id="industry-applications">
+			<h2><strong>Industry Applications</strong></h2>
+			<ul>
+				<li>
+					<strong>Chatbots &amp; Virtual Assistants:</strong> Better at understanding NLP queries.
+				</li>
+				<li>
+					<strong>Text summarization:</strong> For generating meaningful summaries of longer texts.
+				</li>
+				<li>
+					<strong>E-commerce:</strong> can enhance the search and recommendation systems in e-commerce
+					platforms by better understanding user queries.
+				</li>
+				<li>
+					<strong>Financial Analysis:</strong> BERT is used in financial applications for tasks
+					such as sentiment analysis of financial news.
+				</li>
+				<li>
+					<strong>Search Engines:</strong> Improves understanding of user queries.
+				</li>
+				<li>
+					<strong>Medical &amp; Healthcare:</strong> BERT has been applied to medical and healthcare
+					domains for tasks such as clinical text analysis, medical record summarization, and information
+					extraction from medical literature.
+				</li>
+				<li>
+					<strong>Content generation:</strong> BERT can be used in content generation tools to produce
+					high-quality and contextually relevant text.
+				</li>
+				<li>
+					<strong>Human Resources:</strong>Assists in the analysis of resumes and job descriptions.
+				</li>
+			</ul>
+		</div>
+		<div id="follow-on-research">
+			<h2><strong>Follow-on Research</strong></h2>
+			<p><em><strong>Note:</strong> The following papers were released within one year of BERT (May 2019 - Oct 2019)</em></p>
+			<ul>
+				<li>
+					<strong>ERNIE<a href="http://127.0.0.1:5500/index.html#ernie">[4]</a>:</strong> Incorporates
+					information-rich knowledge graphs during pre-training to enhance language representation with
+					lexical, syntactic, and knowledge information simultaneously.
+				</li>
+				<li>
+					<strong>XLNet<a href="http://127.0.0.1:5500/index.html#xlnet">[5]</a>:</strong> Enables
+					bidirectional context learning through permutation-based training and addresses the "pretrain
+					-finetune discrepancy" (dependency between masked tokens) with its autoregressive formulation.
+				</li>
+				<li>
+					<strong>RoBERTa<a href="http://127.0.0.1:5500/index.html#roberta">[6]</a>:</strong> Improves
+					over BERT by conducting a meticulous replication study, optimizes key hyperparameters, and
+					demonstrates that BERT was significantly undertrained.
+				</li>
+				<li>
+					<strong>ALBERT <a href="http://127.0.0.1:5500/index.html#albert">[7]</a>:</strong> Introduces
+					two parameter-reduction techniques to enhance memory efficiency and training speed with scalability,
+					and incorporates a self-supervised loss for inter-sentence coherence modeling.
+				</li>
+				<li>
+					<strong>DistilBERT<a href="http://127.0.0.1:5500/index.html#distilbert">[8]</a>:</strong> Uses
+					knowledge distillation to compress BERT during pre-training, and shows that it is possible to
+					reduce the size of a BERT model by 40%, while retaining 97% of its language understanding
+					capabilities and being 60% faster.
+				</li>
+				<li>
+					<strong>T5<a href="http://127.0.0.1:5500/index.html#t5">[9]</a>:</strong> Introduces a unified
+					text-to-text framework for transfer learning in NLP, and systematically explores various
+					pre-training objectives, architectures, and transfer learning approaches.
+				</li>
+			</ul>
+		</div>
+		<div id="results">
+			<h2><strong>Implementations/results</strong></h2>
+			<ol>
+				<li>
+					<b>Fine tuning of BERT for single sentence classification task using Cola dataset</b>
+					<p>
+						We used The Corpus of Linguistic Acceptability (CoLA) dataset for the classification
+						of single sentences. This dataset consists of sentences annotated as either
+						grammatically correct or incorrect. Initially released in May 2018, it serves as
+						one of the assessments within the "GLUE Benchmark," where models such as BERT
+						participate in competition.
+					</p>
+					<p>
+						For fine tuning, our initial step involves adapting the pre-trained BERT model to
+						generate classification outputs. Subsequently, we aim to further train the model
+						on our dataset until the entire model, from start to finish, is tailored to our
+						specific task.
+					</p>
+					<p>
+						The PyTorch implementation by Hugging Face provides a range of interfaces tailored
+						for diverse NLP tasks. While these interfaces are constructed upon a pre-trained
+						BERT model, they feature distinct top layers and output formats customized to meet
+						the requirements of their respective NLP tasks. We use BertForSequenceClassification
+						class in our case.
+					</p>
+					<p>
+					We chose Batch size: 32, Learning rate: 2e-5, Epochs: 4 as suggested in paper,
+					and evaluated predictions using Matthew's correlation coefficient because this is
+					the metric used by the NLP community to evaluate performance on CoLA, got  MCC
+					to be 0.514
+				</p>
+				</li>
+			</ol>
+		</div>
+		<div id="conclusions">
+			<h2><strong>Conclusion/Ablation Studies</strong></h2>
+			<div class="conclusion-div">
+				<img src="./imgs/pretraining_task.png">
+				<div>
+					<p>
+						The graph shows performance on pre-training tasks using the BERT-Base architecture.
+					</p>
+					<ul>
+						<li>“No NSP” is trained without the next sentence prediction task.</li>
+						<li>“LTR & No NSP” is trained as a left-to-right LM without the next sentence prediction, like OpenAI GPT.</li>
+						<li>“LTR & No NSP + BiLSTM” adds a randomly initialized BiLSTM on top of the “LTR + No NSP” model during fine-tuning.</li>
+					</ul>
+					<p>
+						We can see that the unidirectional model does poorly on SQuAD (word-level), and Bi-LSTM mitigates that with bidirectional
+						context. Also, MLM is important in some tasks.
+					</p>
 
 
 
+				</div>
+			</div>
+			<div class="conclusion-div">
+				<img src="./imgs/training_steps.png">
+				<div>
+					<p>
+						BERT-Base achieves almost 1.0% additional accuracy on MNLI when trained on 
+						1M steps compared to 500k steps. The MLM model begins to outperform the LTR 
+						model almost immediately.
+					</p>
+				</div>
+			</div>
+			<div class="conclusion-div">
+				<img src="./imgs/bert_accuracy.png">
+				<div>
+					<p>
+						BERT validation accuracy when trained and evaluated under several versions of
+						SWAG, with the new dataset HellaSwag as comparison, where,
+					</p>
+					<ul>
+						<li>
+							<b>Ending Only:</b> No context is provided; just the endings.
+						</li>
+						<li>
+							<b>Shuffled:</b> Endings that are individually tokenized, shuffled, and then detokenized.
+						</li>
+						<li>
+							<b>Shuffled + Ending Only:</b> No context is provided and each ending is shuffled.
+						</li>
+					</ul>
+					<p>
+						BERT’s performance only falls by 11.9% when context is omitted (Ending Only),
+						suggesting a bias exists in the endings themselves. When an ending seems unreasonable
+						in the absence of context, then the space of machine-generated endings must be
+						remarkably different from human-written ones.
+					</p>
+				</div>
+			</div>
+			<div>
+				<img src="./imgs/ablation_studies.png">
+			</div>
+		</div>
+		<div id="paper-insights">
+			<h2><strong>Paper insights</strong></h2>
+			<p>
+				SWAG is a commonsense NLI dataset. A model is given a context from a video caption
+				and four ending options for what might happen next for each question. Only one option
+				is correct: the video's actual next caption. Previous research (e.g., Gururangan et
+				al., 2018; Poliak et al., 2018) discovered that when humans write the endings to NLI
+				questions, they introduce subtle but significant class-conditional biases known as
+				annotation artifacts. Zellers et al. (2018) proposed Adversarial Filtering (AF) to
+				address this. The main idea was to create a dataset D that is antagonistic for any
+				arbitrary split of (D_train, D_test). Importantly, regardless of the final dataset
+				split, AF produces a final dataset that is difficult to model. We put HellaSwag, a
+				new NLI dataset that uses AF as the underlying workhorse, to the test; one that is
+				simple for humans but difficult for machines. When measured on SWAG with varying training
+				dataset sizes, BERT outperforms the ELMo NLI model (Chen et al., 2017) with only 64
+				examples. BERT, on the other hand, requires upwards of 16k examples to approach human
+				performance, after which it plateaus. Initially, SWAG Endings were generated using a
+				language model and then chosen to fool a discriminator using a two-layer LSTM. This
+				setup was resistant to ELMo models, but the shallow LM in particular produced distributional
+				artifacts that BERT was picking up on. To investigate this, the authors of the new
+				dataset used AF in two settings, comparing generations from Zellers et al. (2018) with
+				those from a fine-tuned GPT (Radford et al., 2018). Surprisingly, the results revealed
+				that the generations used in SWAG are so dissimilar to the human-written endings that
+				AF never loses accuracy to chance, instead settling at around 75%. GPT's generations,
+				on the other hand, are good enough that BERT accuracy drops below 30% over many random
+				subsplits of the data, highlighting the importance of the generator.
+			</p>
+			<div class="conclusion-div">
+				<img src="./imgs/bert_accuracy_2.png">
+				<img src="./imgs/model_performance.png">
+			</div>
+		</div>
+		<div id="peer-review">
+			<h2>Peer-Review</h2>
+		</div>
+		<div id="references">
+			<h3><strong>References</strong></h3>
+			<p>[1]<a href="https://arxiv.org/pdf/1810.04805.pdf">Jacob Devlin, Ming-Wei Chang, Kenton Lee,
+				Kristina Toutanova. <em>BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding.
+				</em></a> arXiv.org (2018, October 11).</p>
+			<p>[2]<a href="https://arxiv.org/pdf/1802.05365.pdf">Matthew E. Peters, Mark Neumann, Mohit Iyyer,
+				Matt Gardner. Christopher Clark, Kenton Lee, Luke Zettlemoyer. <em>Deep contextualized word representations.
+				</em></a>arXiv.org (2018, March 22).</p>
+			<p>[3]<a href="https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf">Alec
+				Radford, Karthik Narasimhan, Tim Salimans, Ilya Sutskever. <em>Improving Language Understanding by
+					Generative Pre-Training.</em></a>OpenAI (2018, June 11).</p>
+			<p>[4]<a href="https://arxiv.org/pdf/1905.07129.pdf">
+					Zhengyan Zhang, Xu Han, Zhiyuan Liu, Xin Jiang, Maosong Sun, Qun Liu.
+					<em>ERNIE: Enhanced Language Representation with Informative Entities.</em>
+				</a>
+				arXiv.org (2019, May 17).
+			</p>
+			<p>[5]<a href="https://arxiv.org/pdf/1906.08237.pdf">
+					Zhilin Yang, Zihang Dai, Yiming Yang, Jaime Carbonell, Ruslan Salakhutdinov, Quoc V. Le.
+					<em>XLNet: Generalized Autoregressive Pretraining for Language Understanding.</em>
+				</a>
+				arXiv.org (2019, June 19).
+			</p>
+			<p>[6]<a href="https://arxiv.org/pdf/1907.11692.pdf">
+					Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer Levy, Mike Lewis, Luke Zettlemoyer, Veselin Stoyanov.
+					<em>RoBERTa: A Robustly Optimized BERT Pretraining Approach.</em>
+				</a>
+				arXiv.org (2019, July 26).
+			</p>
+			<p>[7]<a href="https://arxiv.org/pdf/1909.11942.pdf">
+					Zhenzhong Lan, Mingda Chen, Sebastian Goodman, Kevin Gimpel, Piyush Sharma, Radu Soricut.
+					<em>ALBERT: A Lite BERT for Self-supervised Learning of Language Representations.</em>
+				</a>
+				arXiv.org (2019, September 26).
+			</p>
+			<p>[8]<a href="https://arxiv.org/pdf/1910.01108.pdf">
+					Victor Sanh, Lysandre Debut, Julien Chaumond, Thomas Wolf.
+					<em>DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter.</em>
+				</a>
+				arXiv.org (2019, October 2).
+			</p>
+			<p>[9]<a href="https://arxiv.org/pdf/1910.10683.pdf">
+					Colin Raffel, Noam Shazeer, Adam Roberts, Katherine Lee, Sharan Narang, Michael Matena, Yanqi Zhou, Wei Li, Peter J. Liu.
+					<em>Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer.</em>
+				</a>
+				arXiv.org (2019, October 23).
+			</p>
+		</div>
+		<div id="team-members">
+			<h2><strong>Team Members</strong></h2>
+			<p>Chandra Teja Kommineni, Debajyoti Chakraborty, Ekam Chahal</p>
+		</div>
+	</body>
+	<script>
+	$(document).on('click', '.clickselect', function(ev) {
+	  var range = document.createRange();
+	  range.selectNodeContents(this);
+	  var sel = window.getSelection();
+	  sel.removeAllRanges();
+	  sel.addRange(range);
+	});
 
-
-
-
-<h2><strong>Diagrams</strong></h2>
-
-<p><img src="index%207ce7079582044b71bbedcdc4fd63756e/Untitled.png"
-alt="Untitled" /></p>
-<h4><strong>Pretraining Dataset</strong></h4>
-<ul>
-<li>Books Corpus (800M words)</li>
-<li>English Wikipedia (2,500M words)</li>
-</ul>
-<h4><strong>Pre-Training Objectives</strong></h4>
-<p><strong>Masked LM (MLM)</strong></p>
-
-
-<ul>
-<li><p>Randomly, <strong>15% of all Word Piece tokens are chosen and
-masked</strong> in each sequence. These tokens are predicted rather
-than constructing the entire input.</p></li>
-<li><p>If the <em>i</em>th token is chosen, then it is replaced with</p>
-<p>(1) <strong>the [MASK] token 80% of the time</strong></p>
-<p>(2) <strong>a random token 10% of the time</strong></p>
-<p>(3) the <strong>unchanged <em>i</em>-th token 10% of the
-time</strong>.</p></li>
-</ul>
-<p>Then, <strong><em>Ti</em> will be used to predict the original
-token</strong> with <strong>cross entropy loss.</strong></p>
-
-<p><strong>Next Sentence Prediction (NSP)</strong></p>
-<ul>
-<li>Given sentences A and B for each pretraining example, <strong>50% of
-the time</strong> B is the <strong>actual next sentence</strong> that
-follows A (labeled as <strong>IsNext</strong>), and <strong>50% of the
-time</strong> it is a <strong>random sentence</strong> from the corpus
-(labeled as <strong>NotNext</strong>).</li>
-<li>Downstream tasks such as Question Answering (QA) and Natural
-Language Inference (NLI) are based on <strong>understanding the
-relationship between two sentences</strong>, which is <strong>not
-directly captured by language modeling</strong>. A binarized next
-sentence prediction task is pretrained that can be trivially generated
-from any monolingual corpus.</li>
-</ul>
-<h4><strong>Input Representation for BERT</strong></h4>
-<p><img src="index%207ce7079582044b71bbedcdc4fd63756e/Untitled%201.png"
-alt="Untitled" /></p>
-<p>Before feeding the input to Bert , we convert input into embeddings
-using 3 embedding layer</p>
-<ul>
-<li><strong>Token embedding</strong>  - New token called [cls] is added in the beginning.
-WordPiece embeddings with a 30,000 token vocabulary is
-used as tokenizer.</li>
-<li><strong>Segment embedding</strong> - Segment embedding distinguishes between the two
-provided sentences. A special token ([SEP]) is used
-for separation.</li>
-<li><strong>Position embedding</strong> - Provide information related to word order.</li>
-</ul>
-<h4><strong>Fine-tuning BERT</strong></h4>
-<p><img src="index%207ce7079582044b71bbedcdc4fd63756e/Untitled%202.png"
-alt="Untitled" /></p>
-<pre><code> Figure : Illustrations of Fine-tuning BERT on Different Tasks.</code></pre>
-
-
-<h3><strong>Why is BERT important?</strong></h3>
-
-<ul>
-<li>Consider the sentence: "He reached the bank after crossing the river. 
-Weary from his journey, he sat down on the grassy bank to rest." In traditional language models, 
-the sentence is typically processed in a linear fashion from left to right, potentially missing 
-the pivotal impact of the word "bank" on the overall interpretation. BERT, on the other hand, 
-acknowledges the importance of context-driven word relationships in crafting meaning. 
-This contextual awareness becomes particularly evident when considering instances like a 
-traveller resting on the riverbank rather than reaching a financial institution.</li>
-</ul>
-
-
-<h2><strong>  Social Impact</strong></h2>
-<h3><strong>Positive Impact</strong></h3>
-<ul>
-<li><strong>Advancements in Chatbots and Virtual
-Assistants</strong>: BERT has contributed to the development of more
-sophisticated and context-aware chatbots and virtual assistants,
-enabling more natural and effective human-computer interactions.</li>
-<li><strong>Enhanced Search Engine Results</strong>: Search engines like
-Google use BERT to better understand the context and nuances of search
-queries, leading to more accurate and relevant search results. This has
-improved the overall search experience for users.</li>
-</ul>
-<h3><strong>Negative Impact</strong></h3>
-<ul>
-<li><strong>Challenges in Bias and Fairness</strong>: The training data
-used for models like BERT may contain biases present in the language
-data. As a result, these biases can be perpetuated or even amplified in
-the model's output, potentially leading to biased or unfair results.
-Addressing bias and ensuring fairness in language models is an ongoing
-challenge.</li>
-<li><strong>Privacy Concerns</strong>: The use of large language models
-raises privacy concerns, especially when handling sensitive information.
-There are risks associated with the unintentional generation of
-sensitive content or the extraction of sensitive information from the
-training data.</li>
-<li><strong>Resource Intensiveness</strong>: Training large models like
-BERT requires significant computational resources, which can contribute
-to environmental concerns. Additionally, deploying and running such
-models in production may require substantial computational power.</li>
-</ul>
-<h2><strong>Industry Applications</strong></h2>
-<ul>
-<li><strong>Chatbots &amp; Virtual Assistants:</strong> Better at
-understanding NLP queries.</li>
-<li><strong>Text summarization:</strong> For generating meaningful
-summaries of longer texts.</li>
-<li><strong>E-commerce:</strong> can enhance the search and
-recommendation systems in e-commerce platforms by better understanding
-user queries.</li>
-<li><strong>Financial Analysis:</strong> BERT is used in financial
-applications for tasks such as sentiment analysis of financial
-news.</li>
-<li><strong>Search Engines:</strong> Improves understanding of user
-queries.</li>
-<li><strong>Medical &amp; Healthcare:</strong> BERT has been applied to
-medical and healthcare domains for tasks such as clinical text analysis,
-medical record summarization, and information extraction from medical
-literature.</li>
-<li><strong>Content generation:</strong> BERT can be used in content
-generation tools to produce high-quality and contextually relevant
-text.</li>
-<li><strong>Human Resources:</strong> Assists in the analysis of resumes
-and job descriptions.</li>
-</ul>
-<h2><strong>Follow-on Research</strong></h2>
-<p><em><strong>Note:</strong> The following papers were released within
-one year of BERT (May 2019 - Oct 2019)</em></p>
-<ul>
-<li><strong>ERNIE <a
-href="http://127.0.0.1:5500/index.html#ernie">[4]</a> :</strong> Incorporates
-information-rich knowledge graphs during pre-training to enhance
-language representation with lexical, syntactic, and knowledge
-information simultaneously.</li>
-<li><strong>XLNet <a
-href="http://127.0.0.1:5500/index.html#xlnet">[5]</a> :</strong> Enables
-bidirectional context learning through permutation-based training and
-addresses the "pretrain-finetune discrepancy" (dependency between masked
-tokens) with its autoregressive formulation.</li>
-<li><strong>RoBERTa <a
-href="http://127.0.0.1:5500/index.html#roberta">[6]</a> :</strong> Improves
-over BERT by conducting a meticulous replication study, optimizes key
-hyperparameters, and demonstrates that BERT was significantly
-undertrained.</li>
-<li><strong>ALBERT <a
-href="http://127.0.0.1:5500/index.html#albert">[7]</a> :</strong> Introduces
-two parameter-reduction techniques to enhance memory efficiency and
-training speed with scalability, and incorporates a self-supervised loss
-for inter-sentence coherence modeling.</li>
-<li><strong>DistilBERT <a
-href="http://127.0.0.1:5500/index.html#distilbert">[8]</a> :</strong> Uses
-knowledge distillation to compress BERT during pre-training, and shows
-that it is possible to reduce the size of a BERT model by 40%, while
-retaining 97% of its language understanding capabilities and being 60%
-faster.</li>
-<li><strong>T5 <a
-href="http://127.0.0.1:5500/index.html#t5">[9]</a> :</strong> Introduces
-a unified text-to-text framework for transfer learning in NLP, and
-systematically explores various pre-training objectives, architectures,
-and transfer learning approaches.</li>
-</ul>
-<h2>Peer-Review</h2>
-<h3><strong>References</strong></h3>
-<p>[1] <a href="https://arxiv.org/pdf/1810.04805.pdf">Jacob Devlin,
-Ming-Wei Chang, Kenton Lee, Kristina Toutanova. <em>BERT: Pre-training
-of Deep Bidirectional Transformers for Language
-Understanding.</em></a> arXiv.org (2018, October 11).</p>
-<p>[2] <a href="https://arxiv.org/pdf/1802.05365.pdf">Matthew E. Peters,
-Mark Neumann, Mohit Iyyer, Matt Gardner. Christopher Clark, Kenton Lee,
-Luke Zettlemoyer. <em>Deep contextualized word
-representations.</em></a> arXiv.org (2018, March 22).</p>
-<p>[3] <a
-href="https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf">Alec
-Radford, Karthik Narasimhan, Tim Salimans, Ilya Sutskever. <em>Improving
-Language Understanding by Generative Pre-Training.</em></a> OpenAI
-(2018, June 11).</p>
-<p>
-  <a id="ernie">[4]</a>
-  <a href="https://arxiv.org/pdf/1905.07129.pdf">
-    Zhengyan Zhang, Xu Han, Zhiyuan Liu, Xin Jiang, Maosong Sun, Qun Liu.
-    <em>ERNIE: Enhanced Language Representation with Informative Entities.</em>
-  </a>
-  arXiv.org (2019, May 17).
-</p>
-<p>
-  <a id="xlnet">[5]</a>
-  <a href="https://arxiv.org/pdf/1906.08237.pdf">
-    Zhilin Yang, Zihang Dai, Yiming Yang, Jaime Carbonell, Ruslan Salakhutdinov, Quoc V. Le.
-    <em>XLNet: Generalized Autoregressive Pretraining for Language Understanding.</em>
-  </a>
-  arXiv.org (2019, June 19).
-</p>
-<p>
-  <a id="roberta">[6]</a>
-  <a href="https://arxiv.org/pdf/1907.11692.pdf">
-    Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer Levy, Mike Lewis, Luke Zettlemoyer, Veselin Stoyanov.
-    <em>RoBERTa: A Robustly Optimized BERT Pretraining Approach.</em>
-  </a>
-  arXiv.org (2019, July 26).
-</p>
-<p>
-  <a id="albert">[7]</a>
-  <a href="https://arxiv.org/pdf/1909.11942.pdf">
-    Zhenzhong Lan, Mingda Chen, Sebastian Goodman, Kevin Gimpel, Piyush Sharma, Radu Soricut.
-    <em>ALBERT: A Lite BERT for Self-supervised Learning of Language Representations.</em>
-  </a>
-  arXiv.org (2019, September 26).
-</p>
-<p>
-  <a id="distilbert">[8]</a>
-  <a href="https://arxiv.org/pdf/1910.01108.pdf">
-    Victor Sanh, Lysandre Debut, Julien Chaumond, Thomas Wolf.
-    <em>DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter.</em>
-  </a>
-  arXiv.org (2019, October 2).
-</p>
-<p>
-  <a id="t5">[9]</a>
-  <a href="https://arxiv.org/pdf/1910.10683.pdf">
-    Colin Raffel, Noam Shazeer, Adam Roberts, Katherine Lee, Sharan Narang, Michael Matena, Yanqi Zhou, Wei Li, Peter J. Liu.
-    <em>Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer.</em>
-  </a>
-  arXiv.org (2019, October 23).
-</p>
-
-<h2><strong>Team Members</strong></h2>
-<p>Chandra Teja Kommineni, Debajyoti Chakraborty, Ekam Chahal</p>
-</body>
-
-<footer class="nd-pagefooter">
-  <div class="row">
-    <div class="col-6 col-md text-center">
-      <a href="https://cs7150.baulab.info/">About CS 7150</a>
-    </div>
-  </div>
-</footer>
-
-</body>
-<script>
-$(document).on('click', '.clickselect', function(ev) {
-  var range = document.createRange();
-  range.selectNodeContents(this);
-  var sel = window.getSelection();
-  sel.removeAllRanges();
-  sel.addRange(range);
-});
-// Google analytics below.
-window.dataLayer = window.dataLayer || [];
+	window.dataLayer = window.dataLayer || [];
 </script>
 </html>
 
