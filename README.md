@@ -1,19 +1,69 @@
-# Class Project Website Template
 
-Copy this template on github, and rename the repo to the name of your project.
+> I have written a comprehensive blog (https://expo.baulab.info/2023-Fall/chandrakommineni/)
+>  covering the topics outlined below, including a replication of key experiments from the BERT paper, such as Fine-tuning on SWAG and sentence classification using the Hugging Face library.
 
-Then go to the repo "Settings" and change "Webhook" settings, to "Add a webhook."
 
-Set up the webhook exactly as you see in the image below, so that it sends
-JSON push notifications to `https://expo.baulab.info/push`.  To work, it will
-need to have the secret pictured.
+# Table of Contents
 
-<img src="webhook.png" style="max-width:100%">
+1. **Introduction**
+   - Overview of BERT
+   - Impact on Language Understanding
 
-Then whenever you push your website, it will show up on
-https://expo.baulab.info/2023-Fall/[username].  Customize your
-`index.html`.
+2. **Historical Background and Related Work**
+   - Evolution of Contextual Representations
+   - Comparison with Previous Models
 
-Your final project report will be a static HTML website that
-shares your insights.  As you develop your
-methods, results, and narrative, add content as needed here.
+3. **Biography**
+   - Profiles of Key Contributors
+
+4. **Diagrams**
+   - Visualization of Transformer Encoder and Decoder
+   - Overview of Pretraining Dataset
+
+5. **Pre-Training Objectives**
+   - Masked Language Model (MLM)
+   - Next Sentence Prediction (NSP)
+
+6. **Input Representation for BERT**
+   - Token, Segment, and Position Embeddings
+
+7. **Fine-tuning BERT**
+   - Advantages of Fine-tuning
+   - Implementation Details
+
+8. **Importance of BERT**
+   - Context-driven Word Relationships
+   - Impact on Language Model Interpretation
+
+9. **Societal Impact**
+   - Positive and Negative Implications
+   - Ethical Considerations
+
+10. **Industry Applications**
+    - Chatbots & Virtual Assistants
+    - Text Summarization
+    - E-commerce and Search Engines
+    - Medical & Healthcare, Human Resources
+
+11. **Follow-on Research**
+    - Overview of Research Papers Released Post-BERT
+
+12. **Implementations/Results**
+    - Fine-tuning on CoLA Dataset
+    - Fine-tuning on SWAG Dataset
+    - Replication of BERT Paper Experiments using Hugging Face Library
+
+13. **Comparison/Ablation Studies**
+    - Performance on Pre-training Tasks
+    - Insights from Ablation Studies
+
+14. **Paper Insights**
+    - Key Findings and Contributions
+    - SWAG Dataset Analysis
+
+15. **Peer-Review**
+    - Merits and Challenges of BERT
+    - Ethical Considerations and Computational Intensity
+
+16. **References**
+    - Citations and External Resources
